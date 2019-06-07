@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import { Platform, StyleSheet, Text, View } from 'react-native';
+import { View } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
 const RootView = styled(View)`
-  background-color: blue;
   height: 200;
+  margin-top: 48;
 `
 
 const CustomMapView = styled(MapView)`
