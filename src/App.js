@@ -1,16 +1,17 @@
 import React from 'react';
 import styled from 'styled-components/native'
-import HeaderView from './components/HeaderView'
-import ProfissionalListView from './components/ProfissionalListView'
-import MapView from './components/MapView'
-import { Text, View } from 'react-native';
+import { Text, View } from 'react-native'
 
-const RootView = styled(View)`
+import Header from './components/Header'
+import ProfissionalList from './components/ProfissionalList'
+import Map from './components/Map'
+
+const Container = styled(View)`
   background-color: white;
   flex: 1;
 `
 
-const TitleView = styled(Text)`
+const Title = styled(Text)`
   height: 56;
   margin-left: 24;
   text-align-vertical: center;
@@ -32,12 +33,12 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <RootView>
-        <TitleView>Consultas</TitleView>
-        <HeaderView items={['Recebidos', 'Mapa']} onSelectTab={this.onSelectTab} />
-        { this.state.selectedTab == 0 ? <ProfissionalListView /> : null }
-        { this.state.selectedTab == 1 ? <MapView /> : null }
-      </RootView>
+      <Container>
+        <Title>Consultas</Title>
+        <Header items={['Recebidos', 'Mapa']} onSelectTab={this.onSelectTab} />
+        { this.state.selectedTab == 0 ? <ProfissionalList /> : null }
+        { this.state.selectedTab == 1 ? <Map /> : null }
+      </Container>
     );
   }
 }

@@ -5,12 +5,12 @@ import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 
 import { buscarDadosMapa } from './../data/Api' 
 
-const RootView = styled(View)`
+const Container = styled(View)`
   height: 240;
   margin-top: 48;
 `
 
-const CustomMapView = styled(MapView)`
+const GoogleMaps = styled(MapView)`
   flex: 1;
 `
 
@@ -43,10 +43,9 @@ export default class Map extends React.Component {
     ))
 
     return (
-      <RootView>
-        <CustomMapView initialRegion={region} loadingEnabled={true} provider={PROVIDER_GOOGLE}>{markers}</CustomMapView>
-      </RootView>
+      <Container>
+        <GoogleMaps initialRegion={region} loadingEnabled={true} provider={PROVIDER_GOOGLE}>{markers}</GoogleMaps>
+      </Container>
     );
   }
 }
-

@@ -1,15 +1,15 @@
 import React from 'react'
 import styled from 'styled-components/native'
 import { Text, ScrollView } from 'react-native'
-import ProfissionalView from './ProfissionalView'
 
 import { buscarProfissionais } from './../data/Api' 
+import Profissional from './Profissional'
 
-const RootView = styled(ScrollView)`
+const Container = styled(ScrollView)`
   flex: 1;
 `
 
-class ProfissionalListView extends React.Component {
+class ProfissionalList extends React.Component {
   constructor (props) {
     super(props)
     this.state = { items: [], isLoading: false }
@@ -32,17 +32,17 @@ class ProfissionalListView extends React.Component {
     const isEmpty = !this.state.isLoading && this.state.items.length == 0
 
     const items = this.state.items.map((item, index) => 
-      <ProfissionalView key={index} profissional={item} />
+      <Profissional key={index} profissional={item} />
     )
   
     return (
-      <RootView contentContainerStyle={{ paddingTop: 24 }}>
+      <Container contentContainerStyle={{ paddingTop: 24 }}>
         { isLoading ? <Text key={"loading"}>Carregando...</Text> : null }
         { isEmpty ? <Text key={"empty-view"}>Lista Vazia!</Text> : null }
         { items }
-      </RootView>
+      </Container>
     )
   }
 }
 
-export default ProfissionalListView
+export default ProfissionalList

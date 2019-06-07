@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components/native'
 import { View, Text } from 'react-native'
 
-const RootView = styled(View)`
+const Container = styled(View)`
   background-color: #FFFFFF;
   border-radius: 8;
   margin: 12px;
@@ -12,7 +12,7 @@ const RootView = styled(View)`
   flex-direction: row;
 `
 
-const InfoView = styled(View)`
+const InfoContainer = styled(View)`
   flex: 1;
   padding: 12px;
 `
@@ -22,7 +22,7 @@ const Name = styled(Text)`
   font-size: 16;
 `
 
-const LikesView = styled(View)`
+const LikesContainer = styled(View)`
   background-color: #00BCD5;
   padding: 12px;
   width: 140;
@@ -41,24 +41,24 @@ const LikesCountText = styled(Text)`
   margin-bottom: 8px;
 `
 
-const ProfissionalView = ({ profissional }) => (
-  <RootView>
-    <InfoView>
+const Profissional = ({ profissional }) => (
+  <Container>
+    <InfoContainer>
       <Name>{ profissional.nome }</Name>
       <Name>{ profissional.endereco }</Name>
       <Name>{ profissional.telefone }</Name>
-    </InfoView>
+    </InfoContainer>
 
-    <LikesView>
+    <LikesContainer>
       <LikesText>Voce tem</LikesText>
       <LikesCountText>{ profissional.quantidadeCurtidas }</LikesCountText>
       <LikesText>Curtidas</LikesText>
-    </LikesView>
-  </RootView>
+    </LikesContainer>
+  </Container>
 )
 
-ProfissionalView.propTypes = {
+Profissional.propTypes = {
   profissional: PropTypes.object.isRequired
 }
 
-export default ProfissionalView
+export default Profissional

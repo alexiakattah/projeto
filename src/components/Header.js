@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/native'
-import HeaderButton from './HeaderButton'
-import { Image, View, Button } from 'react-native'
+import { Image, View } from 'react-native'
 
-const RootView = styled(View)`
+import HeaderButton from './HeaderButton'
+
+const Container = styled(View)`
   height: 140px;
   flex-direction: row;
   justify-content: center;
@@ -12,12 +13,12 @@ const RootView = styled(View)`
   overflow: hidden;
 `
 
-const BackgroundView = styled(Image)`
+const Background = styled(Image)`
   position: absolute;
   top: 0;
 `
 
-class HeaderView extends React.Component {
+class Header extends React.Component {
   constructor (props) {
     super(props)
     this.state = { activePosition: 0 }
@@ -29,7 +30,7 @@ class HeaderView extends React.Component {
   }
 
   render() {
-    const buttons = this.props.items.map((item, index) => 
+    const tabs = this.props.items.map((item, index) => 
       <HeaderButton 
         key={index} 
         text={item} 
@@ -39,17 +40,17 @@ class HeaderView extends React.Component {
     )
   
     return (
-      <RootView>
-        <BackgroundView source={require('./../assets/header.png')} resizeMode='repeat' />
-        {buttons}
-      </RootView>
+      <Container>
+        <Background source={require('./../assets/header.png')} resizeMode='repeat' />
+        {tabs}
+      </Container>
     )
   }
 }
 
-HeaderView.propTypes = {
+Header.propTypes = {
   items: PropTypes.array.isRequired,
   onSelectTab: PropTypes.func.isRequired
 }
 
-export default HeaderView
+export default Header
