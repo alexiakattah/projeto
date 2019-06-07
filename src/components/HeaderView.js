@@ -5,10 +5,11 @@ import HeaderButton from './HeaderButton'
 import { Image, View, Button } from 'react-native'
 
 const RootView = styled(View)`
-  height: 140;
+  height: 140px;
   flex-direction: row;
   justify-content: center;
   align-items: flex-end;
+  overflow: hidden;
 `
 
 const BackgroundView = styled(Image)`

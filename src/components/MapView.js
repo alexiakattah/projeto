@@ -4,7 +4,7 @@ import { View } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
 const RootView = styled(View)`
-  height: 200;
+  height: 240;
   margin-top: 48;
 `
 
