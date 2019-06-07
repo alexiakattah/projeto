@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import { Text, ScrollView } from 'react-native'
+import { ScrollView } from 'react-native'
 
 import { buscarProfissionais } from './../data/Api' 
 import Profissional from './Profissional'
+import Loading from './Loading'
+import EmptyState from './EmptyState'
 
 const Container = styled(ScrollView)`
   flex: 1;
@@ -37,8 +39,8 @@ class ProfissionalList extends React.Component {
   
     return (
       <Container contentContainerStyle={{ paddingTop: 24 }}>
-        { isLoading ? <Text key={"loading"}>Carregando...</Text> : null }
-        { isEmpty ? <Text key={"empty-view"}>Lista Vazia!</Text> : null }
+        { isLoading ? <Loading key={"loading"} /> : null }
+        { isEmpty ? <EmptyState key={"empty-view"} /> : null }
         { items }
       </Container>
     )
